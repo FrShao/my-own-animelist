@@ -11,8 +11,8 @@
 
     let elementWidth;
     onMount(async () => {
-        Thing = (await import(`./${lib}.svelte`)).default;
-        elementWidth = (await import(`./$lib/${lib}.svelte`)).getElementWidth();
+        Thing = (await import(`$lib/${lib}.svelte`)).default;
+        elementWidth = (await import(`$lib/${lib}.svelte`)).getElementWidth();
         //JS variables to CSS variables 
         if(isFittingSingleElement){
             noSkippedCard = 1;
