@@ -14,6 +14,7 @@
 	"devDependencies": {
 		"@rollup/plugin-dynamic-import-vars": "^2.0.1",
 		"@sveltejs/adapter-auto": "next",
+		"@sveltejs/adapter-netlify": "^1.0.0-next.84",
 		"@sveltejs/kit": "next",
 		"prettier": "^2.6.2",
 		"prettier-plugin-svelte": "^2.7.0",
