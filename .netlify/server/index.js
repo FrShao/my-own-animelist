@@ -2269,52 +2269,52 @@ function set_paths(paths) {
   assets = paths.assets || base;
 }
 const app_template = ({ head, body, assets: assets2, nonce }) => '<!DOCTYPE html>\n<html lang="en">\n	<head>\n		<meta charset="utf-8" />\n		<link rel="icon" href="' + assets2 + '/favicon.png" />\n		<link rel="stylesheet" href="' + assets2 + '/main.css">\n		<meta name="viewport" content="width=device-width" />\n		' + head + "\n	</head>\n	<body>\n		<div>" + body + "</div>\n	</body>\n</html>\n";
-const error_template = ({ status, message }) => '<!DOCTYPE html>\r\n<html lang="en">\r\n	<head>\r\n		<meta charset="utf-8" />\r\n		<title>' + message + `</title>\r
-\r
-		<style>\r
-			body {\r
-				font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,\r
-					Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;\r
-				display: flex;\r
-				align-items: center;\r
-				justify-content: center;\r
-				height: 100vh;\r
-			}\r
-\r
-			.error {\r
-				display: flex;\r
-				align-items: center;\r
-				max-width: 32rem;\r
-				margin: 0 1rem;\r
-			}\r
-\r
-			.status {\r
-				font-weight: 200;\r
-				font-size: 3rem;\r
-				line-height: 1;\r
-				position: relative;\r
-				top: -0.05rem;\r
-			}\r
-\r
-			.message {\r
-				border-left: 1px solid #ccc;\r
-				padding: 0 0 0 1rem;\r
-				margin: 0 0 0 1rem;\r
-				min-height: 2.5rem;\r
-				display: flex;\r
-				align-items: center;\r
-			}\r
-\r
-			.message h1 {\r
-				font-weight: 400;\r
-				font-size: 1em;\r
-				margin: 0;\r
-			}\r
-		</style>\r
-	</head>\r
-	<body>\r
-		<div class="error">\r
-			<span class="status">` + status + '</span>\r\n			<div class="message">\r\n				<h1>' + message + "</h1>\r\n			</div>\r\n		</div>\r\n	</body>\r\n</html>\r\n";
+const error_template = ({ status, message }) => '<!DOCTYPE html>\n<html lang="en">\n	<head>\n		<meta charset="utf-8" />\n		<title>' + message + `</title>
+
+		<style>
+			body {
+				font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
+					Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				height: 100vh;
+			}
+
+			.error {
+				display: flex;
+				align-items: center;
+				max-width: 32rem;
+				margin: 0 1rem;
+			}
+
+			.status {
+				font-weight: 200;
+				font-size: 3rem;
+				line-height: 1;
+				position: relative;
+				top: -0.05rem;
+			}
+
+			.message {
+				border-left: 1px solid #ccc;
+				padding: 0 0 0 1rem;
+				margin: 0 0 0 1rem;
+				min-height: 2.5rem;
+				display: flex;
+				align-items: center;
+			}
+
+			.message h1 {
+				font-weight: 400;
+				font-size: 1em;
+				margin: 0;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="error">
+			<span class="status">` + status + '</span>\n			<div class="message">\n				<h1>' + message + "</h1>\n			</div>\n		</div>\n	</body>\n</html>\n";
 let read = null;
 set_paths({ "base": "", "assets": "" });
 let default_protocol = "https";

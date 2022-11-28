@@ -51,7 +51,7 @@
     // TO-DO if at the end of the page and infos.pagination.has_next_page; getInfos page suivante
 </script>
 <script context="module" lang='ts'>
-    export let elementWidth = (225*2) + 325 + 10; // 2 card + text + text_marge
+    export let elementWidth = 785; // 2 card + text + text_marge
 </script>
 
 <slot>

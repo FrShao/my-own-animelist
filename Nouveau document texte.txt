@@ -1,0 +1,1 @@
+cp './src/lib' './.svelte-kit/output/clienjt/_app/immutable/components/
