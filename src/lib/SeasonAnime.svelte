@@ -65,6 +65,10 @@
 </script>
 <script context="module" lang='ts'>
     export let elementWidth = 225+10;
+
+    export function getElementWidth(){
+        return elementWidth;
+    }
 </script>
 
 <slot>

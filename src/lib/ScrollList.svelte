@@ -12,7 +12,7 @@
     let elementWidth;
     onMount(async () => {
         Thing = (await import(`../lib/${lib}.svelte`)).default;
-        elementWidth = (await import(`../lib/${lib}.svelte`)).elementWidth;
+        elementWidth = (await import(`../lib/${lib}.svelte`)).getElementWidth();
         //JS variables to CSS variables 
         if(isFittingSingleElement){
             noSkippedCard = 1;
@@ -25,7 +25,6 @@
         document.documentElement.style.setProperty('--elementWidth', elementWidth + 'px');
         uniqId = newUniqueId();
         timeOut = noSkippedCard*elementWidth * 0.63
-        const selector = document.querySelector(`.scroll-images-${lib}-${uniqId}`);
     });
 
     let buttonWidth = 40;
@@ -60,15 +59,16 @@
     */
 
     async function scroll(direction=1) {
-        const selector = document.querySelector(`.scroll-images-${lib}-${uniqId}`);
-       
         if(isFittingSingleElement){
             isScrollStarted=true;
+        }
+
+        const selector = document.querySelector(`.scroll-images-${lib}-${uniqId}`);
+        selector.scrollBy(noSkippedCard*elementWidth*direction, 0);
+        setTimeout(()=> {isScrollStarted = false}, timeOut);
+        
+        if(isFittingSingleElement){
             setTimeout(()=> {isScrollStarted = false}, timeOut);
-            selector.scrollBy(elementWidth, 0);
-        } else {
-            const selector = document.querySelector(`.scroll-images-${lib}-${uniqId}`);
-            selector.scrollBy(noSkippedCard*elementWidth*direction, 0);
         }
     }
 </script>

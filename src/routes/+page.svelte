@@ -15,7 +15,6 @@
     saison anime
     <ScrollList lib='SeasonAnime'/>
     next season
-
     <ScrollList lib='SeasonAnime' extraInformations={['upcoming', '']}/>
     <ScrollList lib='TopAnime'/>
     <ScrollList lib='AnimeRecommendations' isFittingSingleElement={true}/>

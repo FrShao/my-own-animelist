@@ -1,1 +1,0 @@
-import{S as a,i as o,s as l}from"../../../../chunks/index-cf589771.js";function r(e,t,s){let{id:i}=t;return e.$$set=n=>{"id"in n&&s(0,i=n.id)},[i]}class d extends a{constructor(t){super(),o(this,t,r,null,l,{id:0})}}export{d as default};

@@ -52,6 +52,9 @@
 </script>
 <script context="module" lang='ts'>
     export let elementWidth = (225*2) + 325 + 10; // 2 card + text + text_marge
+    export function getElementWidth(){
+        return elementWidth;
+    }
 </script>
 
 <slot>
