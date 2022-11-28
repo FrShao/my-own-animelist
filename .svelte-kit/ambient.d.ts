@@ -41,11 +41,9 @@ declare module '$env/static/private' {
 	export const HOMEDRIVE: string;
 	export const HOMEPATH: string;
 	export const INIT_CWD: string;
-	export const INTEL_DEV_REDIST: string;
 	export const LANG: string;
 	export const LOCALAPPDATA: string;
 	export const LOGONSERVER: string;
-	export const MIC_LD_LIBRARY_PATH: string;
 	export const NODE: string;
 	export const NODE_EXE: string;
 	export const NPM_CLI_JS: string;
@@ -72,7 +70,6 @@ declare module '$env/static/private' {
 	export const NPM_PREFIX_NPM_CLI_JS: string;
 	export const NUMBER_OF_PROCESSORS: string;
 	export const OneDrive: string;
-	export const OneDriveCommercial: string;
 	export const ORIGINAL_XDG_CURRENT_DESKTOP: string;
 	export const OS: string;
 	export const Path: string;
@@ -86,7 +83,9 @@ declare module '$env/static/private' {
 	export const ProgramW6432: string;
 	export const PROMPT: string;
 	export const PSModulePath: string;
+	export const PT8HOME: string;
 	export const PUBLIC: string;
+	export const SESSIONNAME: string;
 	export const SystemDrive: string;
 	export const SystemRoot: string;
 	export const TEMP: string;
@@ -98,6 +97,7 @@ declare module '$env/static/private' {
 	export const USERNAME: string;
 	export const USERPROFILE: string;
 	export const windir: string;
+	export const ZES_ENABLE_SYSMAN: string;
 }
 
 /**
@@ -142,11 +142,9 @@ declare module '$env/dynamic/private' {
 		HOMEDRIVE: string;
 		HOMEPATH: string;
 		INIT_CWD: string;
-		INTEL_DEV_REDIST: string;
 		LANG: string;
 		LOCALAPPDATA: string;
 		LOGONSERVER: string;
-		MIC_LD_LIBRARY_PATH: string;
 		NODE: string;
 		NODE_EXE: string;
 		NPM_CLI_JS: string;
@@ -173,7 +171,6 @@ declare module '$env/dynamic/private' {
 		NPM_PREFIX_NPM_CLI_JS: string;
 		NUMBER_OF_PROCESSORS: string;
 		OneDrive: string;
-		OneDriveCommercial: string;
 		ORIGINAL_XDG_CURRENT_DESKTOP: string;
 		OS: string;
 		Path: string;
@@ -187,7 +184,9 @@ declare module '$env/dynamic/private' {
 		ProgramW6432: string;
 		PROMPT: string;
 		PSModulePath: string;
+		PT8HOME: string;
 		PUBLIC: string;
+		SESSIONNAME: string;
 		SystemDrive: string;
 		SystemRoot: string;
 		TEMP: string;
@@ -199,6 +198,7 @@ declare module '$env/dynamic/private' {
 		USERNAME: string;
 		USERPROFILE: string;
 		windir: string;
+		ZES_ENABLE_SYSMAN: string;
 		[key: string]: string | undefined;
 	}
 }
