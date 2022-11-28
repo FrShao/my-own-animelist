@@ -1,4 +1,4 @@
 [build]
-  command = "npm run build;rmdir './.svelte-kit/output/clienjt/_app/immutable/components/lib';cp './src/lib' './.svelte-kit/output/clienjt/_app/immutable/components/'"
+  command = "npm run build;rmdir /Q /S './.svelte-kit/output/clienjt/_app/immutable/components/lib';cp './src/lib' './.svelte-kit/output/clienjt/_app/immutable/components/'"
   publish = "build"
 
