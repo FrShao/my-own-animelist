@@ -4,7 +4,7 @@ export const manifest = {
 	assets: new Set(["color-palette.txt","favicon.png","main.css","main.js","smui.css"]),
 	mimeTypes: {".txt":"text/plain",".png":"image/png",".css":"text/css",".js":"application/javascript"},
 	_: {
-		entry: {"file":"_app/immutable/start-7c20a63d.js","imports":["_app/immutable/start-7c20a63d.js","_app/immutable/chunks/index-9fb6ca3a.js","_app/immutable/chunks/singletons-9c29f4fc.js","_app/immutable/chunks/preload-helper-b21cceae.js"],"stylesheets":[]},
+		entry: {"file":"_app/immutable/start-b4f45d1e.js","imports":["_app/immutable/start-b4f45d1e.js","_app/immutable/chunks/index-9fb6ca3a.js","_app/immutable/chunks/singletons-7669766b.js","_app/immutable/chunks/preload-helper-b21cceae.js"],"stylesheets":[]},
 		nodes: [
 			() => import('./nodes/0.js'),
 			() => import('./nodes/1.js'),
