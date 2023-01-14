@@ -1,0 +1,15 @@
+Bright:
+    #FFF5F7
+    #edf1f5
+
+Dark:
+    #2F4858
+    #31527C
+    #585599
+
+Base color => #ff006e on https://mycolor.space
+
+https://huemint.com/website-3/#palette=edf1f5-bdb6d2-323a62-3c6285-ff006e-30517c
+
+À faire :
+Pagination

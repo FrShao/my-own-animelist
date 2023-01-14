@@ -1,5 +1,6 @@
 <script>
     import { onMount } from 'svelte';
+    import Card from './Card.svelte';
 
     onMount(() => {
         document.documentElement.style.setProperty('--cardWidth', cardWidth + 'px');
@@ -71,7 +72,7 @@
     export let elementWidth = 225+10;
 </script>
 
-<slot>
+<section>
     <div class="wrap {isNoWrap ? 'nowrap' : ''}">
         {#await infos}
             <div>Waiting for informations ...</div>
@@ -98,7 +99,7 @@
                 <div>Error: {error.message}</div>
         {/await}
     </div>
-</slot>
+</section>
 
 <style>
     .wrap {

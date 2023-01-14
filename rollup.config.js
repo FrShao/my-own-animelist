@@ -1,6 +1,7 @@
 import dynamicImportVars from '@rollup/plugin-dynamic-import-vars';
 import svelte from 'rollup-plugin-svelte';
 import resolve from '@rollup/plugin-node-resolve';
+import postcss from 'rollup-plugin-postcss'
 
 export default {
   input: 'src/main.js',
@@ -23,11 +24,12 @@ export default {
 
       // Optionally, preprocess components with svelte.preprocess:
       // https://svelte.dev/docs#compile-time-svelte-preprocess
-      preprocess: {
+      /*preprocess: {
         style: ({ content }) => {
           return transformStyles(content);
         }
-      },
+      },*/
+      preprocess: preprocess(),
 
       // Emit CSS as "files" for other plugins to process. default is true
       emitCss: false,
@@ -65,6 +67,6 @@ export default {
       exportConditions: ['svelte'],
       extensions: ['.svelte']
     }),
-    // ...
+    postcss(),
   ]
 }

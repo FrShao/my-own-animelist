@@ -3,10 +3,10 @@ import { init } from '../serverless.js';
 export const handler = init({
 	appDir: "_app",
 	appPath: "_app",
-	assets: new Set(["favicon.png","main.css"]),
-	mimeTypes: {".png":"image/png",".css":"text/css"},
+	assets: new Set(["color-palette.txt","favicon.png","main.css","main.js","smui.css"]),
+	mimeTypes: {".txt":"text/plain",".png":"image/png",".css":"text/css",".js":"application/javascript"},
 	_: {
-		entry: {"file":"_app/immutable/start-62fcef69.js","imports":["_app/immutable/start-62fcef69.js","_app/immutable/chunks/index-cf589771.js","_app/immutable/chunks/singletons-54628cba.js","_app/immutable/chunks/preload-helper-b21cceae.js"],"stylesheets":[]},
+		entry: {"file":"_app/immutable/start-7c20a63d.js","imports":["_app/immutable/start-7c20a63d.js","_app/immutable/chunks/index-9fb6ca3a.js","_app/immutable/chunks/singletons-9c29f4fc.js","_app/immutable/chunks/preload-helper-b21cceae.js"],"stylesheets":[]},
 		nodes: [
 			() => import('../server/nodes/0.js'),
 			() => import('../server/nodes/1.js'),
@@ -15,7 +15,15 @@ export const handler = init({
 			() => import('../server/nodes/4.js'),
 			() => import('../server/nodes/5.js'),
 			() => import('../server/nodes/6.js'),
-			() => import('../server/nodes/7.js')
+			() => import('../server/nodes/7.js'),
+			() => import('../server/nodes/8.js'),
+			() => import('../server/nodes/9.js'),
+			() => import('../server/nodes/10.js'),
+			() => import('../server/nodes/11.js'),
+			() => import('../server/nodes/12.js'),
+			() => import('../server/nodes/13.js'),
+			() => import('../server/nodes/14.js'),
+			() => import('../server/nodes/15.js')
 		],
 		routes: [
 			{
@@ -28,12 +36,30 @@ export const handler = init({
 				endpoint: null
 			},
 			{
+				id: "/(protected)/admin",
+				pattern: /^\/admin\/?$/,
+				names: [],
+				types: [],
+				optional: [],
+				page: { layouts: [0], errors: [1], leaf: 6 },
+				endpoint: null
+			},
+			{
+				id: "/(protected)/admin/user-management",
+				pattern: /^\/admin\/user-management\/?$/,
+				names: [],
+				types: [],
+				optional: [],
+				page: { layouts: [0], errors: [1], leaf: 7 },
+				endpoint: null
+			},
+			{
 				id: "/animes",
 				pattern: /^\/animes\/?$/,
 				names: [],
 				types: [],
 				optional: [],
-				page: { layouts: [0], errors: [1], leaf: 3 },
+				page: { layouts: [0], errors: [1], leaf: 8 },
 				endpoint: null
 			},
 			{
@@ -42,6 +68,24 @@ export const handler = init({
 				names: ["id"],
 				types: [null],
 				optional: [false],
+				page: { layouts: [0], errors: [1], leaf: 9 },
+				endpoint: null
+			},
+			{
+				id: "/(auth)/login",
+				pattern: /^\/login\/?$/,
+				names: [],
+				types: [],
+				optional: [],
+				page: { layouts: [0], errors: [1], leaf: 3 },
+				endpoint: null
+			},
+			{
+				id: "/(auth)/logout",
+				pattern: /^\/logout\/?$/,
+				names: [],
+				types: [],
+				optional: [],
 				page: { layouts: [0], errors: [1], leaf: 4 },
 				endpoint: null
 			},
@@ -51,7 +95,7 @@ export const handler = init({
 				names: [],
 				types: [],
 				optional: [],
-				page: { layouts: [0], errors: [1], leaf: 5 },
+				page: { layouts: [0], errors: [1], leaf: 10 },
 				endpoint: null
 			},
 			{
@@ -60,7 +104,34 @@ export const handler = init({
 				names: ["id"],
 				types: [null],
 				optional: [false],
-				page: { layouts: [0], errors: [1], leaf: 6 },
+				page: { layouts: [0], errors: [1], leaf: 11 },
+				endpoint: null
+			},
+			{
+				id: "/profile",
+				pattern: /^\/profile\/?$/,
+				names: [],
+				types: [],
+				optional: [],
+				page: { layouts: [0], errors: [1], leaf: 12 },
+				endpoint: null
+			},
+			{
+				id: "/profile/animes-list",
+				pattern: /^\/profile\/animes-list\/?$/,
+				names: [],
+				types: [],
+				optional: [],
+				page: { layouts: [0], errors: [1], leaf: 13 },
+				endpoint: null
+			},
+			{
+				id: "/(auth)/register",
+				pattern: /^\/register\/?$/,
+				names: [],
+				types: [],
+				optional: [],
+				page: { layouts: [0], errors: [1], leaf: 5 },
 				endpoint: null
 			},
 			{
@@ -69,7 +140,16 @@ export const handler = init({
 				names: [],
 				types: [],
 				optional: [],
-				page: { layouts: [0], errors: [1], leaf: 7 },
+				page: { layouts: [0], errors: [1], leaf: 14 },
+				endpoint: null
+			},
+			{
+				id: "/upload",
+				pattern: /^\/upload\/?$/,
+				names: [],
+				types: [],
+				optional: [],
+				page: { layouts: [0], errors: [1], leaf: 15 },
 				endpoint: null
 			}
 		],

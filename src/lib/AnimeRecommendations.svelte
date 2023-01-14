@@ -54,7 +54,7 @@
     export let elementWidth = 785; // 2 card + text + text_marge
 </script>
 
-<slot>
+<section>
     <div class="wrap {isNoWrap ? 'nowrap' : ''}">
         {#await infos}
             <div>Waiting for informations ...</div>
@@ -93,7 +93,7 @@
                 <div>Error: {error.message}</div>
         {/await}
     </div>
-</slot>
+</section>
 
 <style>
     .wrap {
@@ -130,6 +130,8 @@
     }
 
     .recommendation-inf {
+        height: 326px;
+        overflow: hidden;
         width: var(--recomTextWidth);
         margin: 0 5px 0 5px;
         padding-top: 10px;

@@ -1,15 +1,15 @@
-<script>
+<script lang="ts">
     import { onMount } from 'svelte';
     import newUniqueId from 'locally-unique-id-generator';
     // Dynamic Import
-    let Thing;
-    let uniqId;
-    let timeOut;
-    export let lib;
-    export let extraInformations;
+    let Thing:String;
+    let uniqId:String;
+    let timeOut:Number;
+    export let lib:any;
+    export let extraInformations:any = undefined;
 
 
-    let elementWidth;
+    let elementWidth:Number;
     onMount(async () => {
         Thing = (await import(`../lib/${lib}.svelte`)).default;
         elementWidth = (await import(`../lib/${lib}.svelte`)).elementWidth;
@@ -33,40 +33,14 @@
     let noSkippedCard = 0;
     let isScrollStarted = false
     export let isFittingSingleElement = false;
-    /*
-    async function leftScroll() {
-        if(isFittingSingleElement){
-            isScrollStarted=true;
-        }
-
-        const left = document.querySelector(`.scroll-images-${lib}-${uniqId}`);
-        left.scrollBy(-noSkippedCard*elementWidth, 0);
-        setTimeout(()=> {isScrollStarted = false}, timeOut);
-
-        if(isFittingSingleElement){
-            setTimeout(()=> {isScrollStarted = false}, timeOut);
-        }
-    }
-    async function rightScroll() {
-        if(isFittingSingleElement){
-            isScrollStarted=true;
-        }
-        const right = document.querySelector(`.scroll-images-${lib}-${uniqId}`);
-        right.scrollBy(noSkippedCard*elementWidth, 0);
-        if(isFittingSingleElement){
-            setTimeout(()=> {isScrollStarted = false}, timeOut);
-        }
-    }
-    */
 
     async function scroll(direction=1) {
         const selector = document.querySelector(`.scroll-images-${lib}-${uniqId}`);
        
         if(isFittingSingleElement){
-            console.log(elementWidth);
             isScrollStarted=true;
             setTimeout(()=> {isScrollStarted = false}, timeOut);
-            selector.scrollBy(elementWidth, 0);
+            selector.scrollBy(elementWidth*direction, 0);
         } else {
             const selector = document.querySelector(`.scroll-images-${lib}-${uniqId}`);
             selector.scrollBy(noSkippedCard*elementWidth*direction, 0);
@@ -76,7 +50,7 @@
 
 
 
-<slot>
+<section>
     <div class="cover" class:fit-element={isFittingSingleElement}>
         <div class='scroll-images-{lib}-{uniqId} scroll-images'>
             {#if extraInformations == undefined}
@@ -93,7 +67,7 @@
             <i class="fas fa-angle-double-right"></i>
         </button>
     </div>
-</slot>
+</section>
 
 <style>
     .cover {

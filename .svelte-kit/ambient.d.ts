@@ -26,6 +26,13 @@
  * ```
  */
 declare module '$env/static/private' {
+	export const DATABASE_URL: string;
+	export const CLOUD_NAME: string;
+	export const API_KEY: string;
+	export const API_SECRET: string;
+	export const CLOUD_FOLDER: string;
+	export const DEFAULT_PP_PUBLICID: string;
+	export const API_BASE_URL: string;
 	export const ALLUSERSPROFILE: string;
 	export const APPDATA: string;
 	export const CHROME_CRASHPAD_PIPE_NAME: string;
@@ -41,9 +48,11 @@ declare module '$env/static/private' {
 	export const HOMEDRIVE: string;
 	export const HOMEPATH: string;
 	export const INIT_CWD: string;
+	export const INTEL_DEV_REDIST: string;
 	export const LANG: string;
 	export const LOCALAPPDATA: string;
 	export const LOGONSERVER: string;
+	export const MIC_LD_LIBRARY_PATH: string;
 	export const NODE: string;
 	export const NODE_ENV: string;
 	export const NODE_EXE: string;
@@ -71,6 +80,7 @@ declare module '$env/static/private' {
 	export const NPM_PREFIX_NPM_CLI_JS: string;
 	export const NUMBER_OF_PROCESSORS: string;
 	export const OneDrive: string;
+	export const OneDriveCommercial: string;
 	export const ORIGINAL_XDG_CURRENT_DESKTOP: string;
 	export const OS: string;
 	export const Path: string;
@@ -84,9 +94,7 @@ declare module '$env/static/private' {
 	export const ProgramW6432: string;
 	export const PROMPT: string;
 	export const PSModulePath: string;
-	export const PT8HOME: string;
 	export const PUBLIC: string;
-	export const SESSIONNAME: string;
 	export const SystemDrive: string;
 	export const SystemRoot: string;
 	export const TEMP: string;
@@ -97,8 +105,8 @@ declare module '$env/static/private' {
 	export const USERDOMAIN_ROAMINGPROFILE: string;
 	export const USERNAME: string;
 	export const USERPROFILE: string;
+	export const VSCODE_INJECTION: string;
 	export const windir: string;
-	export const ZES_ENABLE_SYSMAN: string;
 }
 
 /**
@@ -111,7 +119,8 @@ declare module '$env/static/private' {
  * ```
  */
 declare module '$env/static/public' {
-
+	export const PUBLIC_CARD_WIDTH: string;
+	export const PUBLIC_CARD_HEIGHT: string;
 }
 
 /**
@@ -128,6 +137,13 @@ declare module '$env/static/public' {
  */
 declare module '$env/dynamic/private' {
 	export const env: {
+		DATABASE_URL: string;
+		CLOUD_NAME: string;
+		API_KEY: string;
+		API_SECRET: string;
+		CLOUD_FOLDER: string;
+		DEFAULT_PP_PUBLICID: string;
+		API_BASE_URL: string;
 		ALLUSERSPROFILE: string;
 		APPDATA: string;
 		CHROME_CRASHPAD_PIPE_NAME: string;
@@ -143,9 +159,11 @@ declare module '$env/dynamic/private' {
 		HOMEDRIVE: string;
 		HOMEPATH: string;
 		INIT_CWD: string;
+		INTEL_DEV_REDIST: string;
 		LANG: string;
 		LOCALAPPDATA: string;
 		LOGONSERVER: string;
+		MIC_LD_LIBRARY_PATH: string;
 		NODE: string;
 		NODE_ENV: string;
 		NODE_EXE: string;
@@ -173,6 +191,7 @@ declare module '$env/dynamic/private' {
 		NPM_PREFIX_NPM_CLI_JS: string;
 		NUMBER_OF_PROCESSORS: string;
 		OneDrive: string;
+		OneDriveCommercial: string;
 		ORIGINAL_XDG_CURRENT_DESKTOP: string;
 		OS: string;
 		Path: string;
@@ -186,9 +205,7 @@ declare module '$env/dynamic/private' {
 		ProgramW6432: string;
 		PROMPT: string;
 		PSModulePath: string;
-		PT8HOME: string;
 		PUBLIC: string;
-		SESSIONNAME: string;
 		SystemDrive: string;
 		SystemRoot: string;
 		TEMP: string;
@@ -199,8 +216,8 @@ declare module '$env/dynamic/private' {
 		USERDOMAIN_ROAMINGPROFILE: string;
 		USERNAME: string;
 		USERPROFILE: string;
+		VSCODE_INJECTION: string;
 		windir: string;
-		ZES_ENABLE_SYSMAN: string;
 		[key: string]: string | undefined;
 	}
 }
@@ -217,6 +234,8 @@ declare module '$env/dynamic/private' {
  */
 declare module '$env/dynamic/public' {
 	export const env: {
+		PUBLIC_CARD_WIDTH: string;
+		PUBLIC_CARD_HEIGHT: string;
 		[key: string]: string | undefined;
 	}
 }

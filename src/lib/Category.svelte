@@ -10,7 +10,7 @@
 </script>
 
 
-<slot>
+<section>
     {#await infos}
         <div>Waiting for informations ...</div>
         {:then infos}
@@ -32,4 +32,4 @@
         {:catch error}
             <div>Error: {error.message}</div>
     {/await}
-</slot>
+</section>

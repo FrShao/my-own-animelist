@@ -1,10 +1,5 @@
 <script>
-    import { onMount } from 'svelte';
-
-    onMount(() => {
-        document.documentElement.style.setProperty('--cardWidth', cardWidth + 'px');
-        document.documentElement.style.setProperty('--cardHeight', cardHeight + 'px');
-    });
+	import Card from './Card.svelte';
 
     export let extraInformations = ['now', ''];
     let year = extraInformations[0];
@@ -14,6 +9,7 @@
     export let isSmall = false;
     export let isNoWrap = false;
     export let cardWidth = 225;
+    export let page = 1;
     let cardHeight= 308;
     if(isSmall){
         cardWidth = 131;
@@ -21,75 +17,59 @@
     };
 
     function cutAtLimit(json){
-        let newJson = [json[0]];
-        for(let i = 1; i<limit; i++){
-            newJson.push(json[i]);
+        let newJson;
+        if (limit==0){
+            newJson = json;
+        }else{
+            newJson = [json[0]];
+            for(let i = 1; i<limit; i++){
+                newJson.push(json[i]);
+            }
         }
         return newJson;
     };
-    async function getInfos() { 
+    async function getInfos(nopage=1) {
         let dynamicPart;
         if(season == ''){
-            dynamicPart = `${year}?page=1`
+            dynamicPart = `${year}?page=${nopage}`
         } else {
-            dynamicPart = `${year}/${season}?page=1`
+            dynamicPart = `${year}/${season}?page=${nopage}`
         }
-        const res = await fetch(`https://api.jikan.moe/v4/seasons/${dynamicPart}`);
+        let path = `https://api.jikan.moe/v4/seasons/${dynamicPart}`;
+
+        let res = await fetch(path);
+
         if (!res.ok || res.status === 404) return [];
+
         let json = await res.json();
-        return json;
-    };
-    let infos = getInfos();
 
-    function checkNameLength(name){
-        let string;
-        const maxChar = 40;
-        if(name.length>maxChar){
-            let counter = 0;
-            let splittedName = name.split(" ");
-            string = '';
-            splittedName.forEach(word => {
-                counter += word.length+1;
-                if(counter<=(maxChar+1)){
-                    string += word + ' '
-                }
-            });
-            string += '...'
-        }else{
-            string = name;
+        if (limit==0 && nopage < json.pagination.last_visible_page){
+            let tmpJson = await getInfos(nopage+1);
+            json.data = json.data.concat(tmpJson);
         }
-        return string;
+        return json.data;
     };
+    let infos = getInfos(page);
 
-    // TO-DO if at the end of the page and infos.pagination.has_next_page; getInfos page suivante
+// TO-DO if at the end of the page and infos.pagination.has_next_page; getInfos page suivante
 </script>
 <script context="module" lang='ts'>
     export let elementWidth = 225+10;
 </script>
 
-<slot>
+<section>
     <div class="wrap {isNoWrap ? 'nowrap' : ''}">
         {#await infos}
             <div>Waiting for informations ...</div>
             {:then infos}
-                {#each cutAtLimit(infos.data) as anime, index}
-                    <div class="card">
-                        <a href="/animes/{anime.mal_id}"><!-- on hover se soulève-->
-                            <div class="card-thumbnail">
-                                <img src="{anime.images.jpg.image_url}" alt="{anime.title}.jpg">
-                            </div>
-                        </a>
-                
-                        <div class="card-desc">
-                            {checkNameLength(anime.title)}
-                        </div>
-                    </div>
+                {#each cutAtLimit(infos) as anime}
+                    <Card cardUrl="/animes/{anime.mal_id}" cardImg="{anime.images.jpg.image_url}" cardName="{anime.title}" />
                 {/each}
             {:catch error}
                 <div>Error: {error.message}</div>
         {/await}
     </div>
-</slot>
+</section>
 
 <style>
     .wrap {
@@ -100,29 +80,5 @@
     }
     .nowrap {
         flex-wrap: nowrap;
-    }
-    .card {
-        font-family: 'Roboto', sans-serif;
-        display: flex;
-        flex-direction: column;
-        width: var(--cardWidth);
-        height: fit-content;
-    }
-    .card-thumbnail {
-        position: relative;
-        width: var(--cardWidth);
-        height: var(--cardHeight);
-    }
-    .card-thumbnail img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        border-radius: 5px;
-    }
-    .card-desc {
-        bottom: 10px;
-        color: rgb(116,136,153);
-        font-weight: 600;
-        font-size: 16px;
     }
 </style>

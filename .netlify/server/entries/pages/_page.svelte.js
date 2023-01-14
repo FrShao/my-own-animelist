@@ -1,5 +1,4 @@
 import { c as create_ssr_component, e as escape, v as validate_component, m as missing_component } from "../../chunks/index.js";
-const TopAnime_svelte_svelte_type_style_lang = "";
 var IdCounter = 0;
 function nextId() {
   return ++IdCounter;
@@ -16,7 +15,7 @@ const css = {
 const ScrollList = create_ssr_component(($$result, $$props, $$bindings, slots) => {
   let uniqId;
   let { lib } = $$props;
-  let { extraInformations } = $$props;
+  let { extraInformations = void 0 } = $$props;
   let { isFittingSingleElement = false } = $$props;
   if ($$props.lib === void 0 && $$bindings.lib && lib !== void 0)
     $$bindings.lib(lib);
@@ -25,32 +24,19 @@ const ScrollList = create_ssr_component(($$result, $$props, $$bindings, slots) =
   if ($$props.isFittingSingleElement === void 0 && $$bindings.isFittingSingleElement && isFittingSingleElement !== void 0)
     $$bindings.isFittingSingleElement(isFittingSingleElement);
   $$result.css.add(css);
-  return `${slots.default ? slots.default({}) : `
-    <div class="${["cover svelte-1db38yo", isFittingSingleElement ? "fit-element" : ""].join(" ").trim()}"><div class="${"scroll-images-" + escape(lib, true) + "-" + escape(uniqId, true) + " scroll-images svelte-1db38yo"}">${extraInformations == void 0 ? `${validate_component(missing_component, "svelte:component").$$render($$result, { isNoWrap: true }, {}, {})}` : `${validate_component(missing_component, "svelte:component").$$render($$result, { isNoWrap: "true", extraInformations }, {}, {})}`}</div>
+  return `<section><div class="${["cover svelte-1db38yo", isFittingSingleElement ? "fit-element" : ""].join(" ").trim()}"><div class="${"scroll-images-" + escape(lib, true) + "-" + escape(uniqId, true) + " scroll-images svelte-1db38yo"}">${extraInformations == void 0 ? `${validate_component(missing_component, "svelte:component").$$render($$result, { isNoWrap: true }, {}, {})}` : `${validate_component(missing_component, "svelte:component").$$render($$result, { isNoWrap: "true", extraInformations }, {}, {})}`}</div>
 
         <button class="${"left svelte-1db38yo"}"><i class="${"fas fa-angle-double-left"}"></i></button>
         <button class="${"right svelte-1db38yo"}" ${""}><i class="${"fas fa-angle-double-right"}"></i></button></div>
-`}`;
+</section>`;
 });
-const Navbar = create_ssr_component(($$result, $$props, $$bindings, slots) => {
-  return `${slots.default ? slots.default({}) : `
-    <div class="${"logo"}"><img src="${""}" alt="${""}"></div>
-    <ul><li><a href="${"/"}">Animes</a></li>
-
-        <li><a href="${"/"}">Mangas</a></li></ul>
-`}`;
-});
+const SingleScrollList_svelte_svelte_type_style_lang = "";
 const Page = create_ssr_component(($$result, $$props, $$bindings, slots) => {
-  return `${validate_component(Navbar, "Navbar").$$render($$result, {}, {}, {})}
-<main><h1>Welcome to SvelteKit</h1>
-    <p>Visit <a href="${"https://kit.svelte.dev"}">kit.svelte.dev</a> to read the documentation</p>
-
-    search bar avec filter
+  return `<main class="${"centered-content"}">search bar avec filter<br>
 
     saison anime
     ${validate_component(ScrollList, "ScrollList").$$render($$result, { lib: "SeasonAnime" }, {}, {})}
     next season
-
     ${validate_component(ScrollList, "ScrollList").$$render(
     $$result,
     {
@@ -60,16 +46,11 @@ const Page = create_ssr_component(($$result, $$props, $$bindings, slots) => {
     {},
     {}
   )}
-    ${validate_component(ScrollList, "ScrollList").$$render($$result, { lib: "TopAnime" }, {}, {})}
-    ${validate_component(ScrollList, "ScrollList").$$render(
-    $$result,
-    {
-      lib: "AnimeRecommendations",
-      isFittingSingleElement: true
-    },
-    {},
-    {}
-  )}</main>`;
+    top
+    
+    RECO
+    
+    </main>`;
 });
 export {
   Page as default

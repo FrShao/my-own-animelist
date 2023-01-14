@@ -1,22 +1,23 @@
 <script>
-    import TopAnime from '$lib/TopAnime.svelte';    
-    import ScrollList from '$lib/ScrollList.svelte';
-    import Navbar from '$lib/Navbar.svelte';
+    import { applyAction, enhance } from '$app/forms'
+    import { invalidateAll } from '$app/navigation'
 
+    import ScrollList from '$lib/ScrollList.svelte';
+    import SingleScrollList from '$lib/SingleScrollList.svelte';
+
+    import { page } from '$app/stores'
 </script>
 
-<Navbar />
-<main>
-    <h1>Welcome to SvelteKit</h1>
-    <p>Visit <a href="https://kit.svelte.dev">kit.svelte.dev</a> to read the documentation</p>
-
-    search bar avec filter
+<main class="centered-content">
+    search bar avec filter<br>
 
     saison anime
     <ScrollList lib='SeasonAnime'/>
     next season
-
     <ScrollList lib='SeasonAnime' extraInformations={['upcoming', '']}/>
-    <ScrollList lib='TopAnime'/>
-    <ScrollList lib='AnimeRecommendations' isFittingSingleElement={true}/>
+    top
+    <!--<ScrollList lib='TopAnime'/>-->
+    RECO
+    <!--<ScrollList lib='AnimeRecommendations' isFittingSingleElement={true}/>-->
+    <!--<SingleScrollList></SingleScrollList>-->
 </main>
